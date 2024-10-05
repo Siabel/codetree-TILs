@@ -10,14 +10,15 @@ int main() {
     {
         for(int j = 0; j < n; j++)
         {
-            if(i == 0 || j == 0)
+            if(i == 0 || j == 0 || j == n - 1)
                 cout << "* ";
             else
                 if(i > j)
                     cout << "* ";
                 else
-                    cout << " ";
+                    cout << "  ";
         }
+        cout << endl;
     }
     return 0;
 }
