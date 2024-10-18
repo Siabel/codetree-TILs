@@ -10,16 +10,15 @@ int main() {
     arr[0] = n;
 
     for(int i = 1; i < 11; i++){
-        if(i % 5 == 0){
-            cnt++;
-        }
-        if(cnt == 2)
-            break;
-
         arr[i] = n * (i + 1);
     }
     
     for(int i = 0; i < 11; i++){
+        if(cnt == 2)
+            break;
+        if(arr[i] % 5 == 0){
+            cnt++;
+        }
         if (arr[i] != 0)
             cout << arr[i] << " ";
     }
