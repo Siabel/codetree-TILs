@@ -18,7 +18,7 @@ int main() {
         
         if(type == 1){
             cin >> a;
-            cout << a << endl;
+            cout << arr[a - 1] << endl;
         }
         else if(type == 2){
             cin >> b;
