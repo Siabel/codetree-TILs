@@ -12,25 +12,25 @@ int main() {
 
     for(int i = 0; i < n; i++){
         cin >> arr[i];
-        if(arr[i] < min_val){
-            min_val = arr[i];
-            idx = i;
-        }
     }
-
-    int max_val = min_val;
-
-    for(int i = idx; i < n; i++){
-        if(arr[i] > max_val && arr[i] > min_val){
-            max_val = arr[i];
-        }
-    }
-
-    int benefit = max_val - min_val;
     
-    if(benefit < 0)
+    int max_profit = 0;     // 최대 이익
+
+    // 배열을 한 번 순회하면서 최대 이익을 계산
+    for(int i = 0; i < n; i++) {
+        if(arr[i] < min_val) {
+            min_val = arr[i];  // 최소값을 업데이트
+        }
+        int current_profit = arr[i] - min_val;  // 현재까지의 이익 계산
+        if(current_profit > max_profit) {
+            max_profit = current_profit;  // 최대 이익 갱신
+        }
+    }
+
+    if(max_profit < 0)
         cout << '0';
     else
-        cout << benefit;
+        cout << max_profit;
+        
     return 0;
 }
