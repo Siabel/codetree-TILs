@@ -8,9 +8,10 @@ int main() {
     int arr[10] = {};
     int sum = 0;
 
-    for(int i = 0; i < 11; i++){
+    for(int i = 0; i < 100; i++){
         arr[a % b]++;
         a /= b;
+
         if(a == 0)
             break;
     }
