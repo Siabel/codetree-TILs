@@ -8,7 +8,7 @@ int main() {
     cin >> n;
     int arr[1000];
     int count_arr[1000] = {};
-    int max_val = INT_MIN;
+    int max_val = 0;
 
     for(int i = 0; i < n; i++){
         cin >> arr[i];
@@ -25,6 +25,9 @@ int main() {
             max_val = i;
     }
 
-    cout << max_val;
+    if(max_val == 0)
+        cout << "-1";
+    else
+        cout << max_val;
     return 0;
 }
