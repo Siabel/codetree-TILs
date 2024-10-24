@@ -32,7 +32,7 @@ int main() {
             if(idx == -1)
                 cout << '0' << endl;
             else
-                cout << idx << endl;
+                cout << idx + 1 << endl;
         }
         else{
             cin >> s >> e;
