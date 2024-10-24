@@ -12,8 +12,6 @@ int main() {
 
     for(int i = 0; i < n; i++){
         cin >> arr[i];
-        if(arr[i] > max_val)
-            max_val = arr[i];
     }
 
     for(int i = 0; i < n; i++){
