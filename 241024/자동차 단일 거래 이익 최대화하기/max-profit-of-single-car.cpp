@@ -7,7 +7,7 @@ int main() {
     int n;
     cin >> n;
     int arr[1000];
-    int min_val = INT_MAX, max_val = 0;
+    int min_val = INT_MAX;
     int idx = -1;
 
     for(int i = 0; i < n; i++){
@@ -18,13 +18,16 @@ int main() {
         }
     }
 
+    int max_val = min_val;
+
     for(int i = idx; i < n; i++){
-        if(arr[i] > max_val){
+        if(arr[i] > max_val && arr[i] > min_val){
             max_val = arr[i];
         }
     }
 
     int benefit = max_val - min_val;
+    
     if(benefit < 0)
         cout << '0';
     else
