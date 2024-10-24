@@ -14,10 +14,12 @@ int main() {
 
         if(arr[i] == 2)
             cnt++;
-        if(cnt == 3)
+        if(cnt == 3){
             idx = i;
+            break;
+        }
     }
 
-    cout << idx - 1;
+    cout << idx + 1;
     return 0;
 }
