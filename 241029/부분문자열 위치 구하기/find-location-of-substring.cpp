@@ -7,7 +7,7 @@ int main() {
     cin >> str >> target;
     int target_idx = -1;
 
-    for(int i = 0; i < str.length() - 1; i++){
+    for(int i = 0; i <= str.length(); i++){
         if(str.find(target) != string::npos)
             target_idx = str.find(target);
     }
