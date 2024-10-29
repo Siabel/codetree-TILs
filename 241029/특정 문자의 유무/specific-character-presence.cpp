@@ -9,10 +9,10 @@ int main() {
     bool exists_ee = false;
     bool exists_ab = false;
 
-    for(int i = 0; i < str.length() - 2; i++){
+    for(int i = 0; i < str.length() - 1; i++){
         if(str.find("ee") != string::npos)
             exists_ee = true;
-        if(str.substr(i,2) == "ab")
+        if(str.substr(i, 2) == "ab")
             exists_ab = true;
     }
 
