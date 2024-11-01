@@ -7,8 +7,8 @@ int main() {
     cin >> str;
 
     str.erase(0,2);
-    str = str.substr(0, str.length() - 4)
+    str = str.substr(0, str.length() - 4);
     cout << str;
-    
+
     return 0;
 }
