@@ -12,7 +12,7 @@ int main() {
         len = str.length();
         cin >> n;
 
-        if(n > len){
+        if(n >= len){
             str.erase(len - 1, 1);
         }
         else
