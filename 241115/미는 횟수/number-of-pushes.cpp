@@ -8,6 +8,10 @@ int main() {
     int cnt = 0;
 
     while(a != b){
+        if(cnt == a.length()){
+            cnt = -1;
+            break;
+        }
         a = a.substr(a.length() - 1, 1) + a.substr(0, a.length() - 1);
         cnt++;
     }
