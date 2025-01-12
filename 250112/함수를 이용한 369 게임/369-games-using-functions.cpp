@@ -5,7 +5,14 @@ using namespace std;
 int a, b;
 
 bool NumExist(int num){
-    return (num / 10) % 3 == 0 || (num % 10) % 3 == 0;
+    while(true){
+        if(num == 0)
+            return false;
+        if((num % 10) % 3 == 0)
+            return true;
+        else
+            num /= 10;
+    }
 }
 
 bool Check(int check_num){
@@ -21,8 +28,6 @@ int main() {
     for(int i = a; i <= b; i++){
         if(Check(i))
             cnt++;
-        else
-            continue;
     }
 
     cout << cnt;
