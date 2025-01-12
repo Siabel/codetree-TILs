@@ -5,14 +5,14 @@ using namespace std;
 int a, b;
 
 bool NumExist(int num){
-    while(true){
-        if(num == 0)
-            return false;
-        if((num % 10) % 3 == 0)
+    int temp = num;
+    while(temp != 0){
+        if((temp % 10) % 3 == 0)
             return true;
         else
-            num /= 10;
+            temp /= 10;
     }
+    return false;
 }
 
 bool Check(int check_num){
