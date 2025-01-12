@@ -7,7 +7,7 @@ int a, b;
 bool NumExist(int num){
     int temp = num;
     while(temp != 0){
-        if((temp % 10) % 3 == 0)
+        if(temp % 10 == 3 || temp % 10 == 6 || temp % 10 == 9)
             return true;
         else
             temp /= 10;
