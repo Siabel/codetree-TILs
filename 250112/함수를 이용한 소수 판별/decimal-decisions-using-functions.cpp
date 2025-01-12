@@ -17,11 +17,11 @@ int main() {
     // Write your code here!
     int sum = 0;
     for(int i = a; i <= b; i++){
-        if(IsPrime(i))
+        if(i > 1 && IsPrime(i))
             sum += i;
     }
 
     cout << sum;
-    
+
     return 0;
 }
