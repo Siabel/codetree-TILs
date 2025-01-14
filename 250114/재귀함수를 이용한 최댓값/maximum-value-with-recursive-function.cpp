@@ -5,16 +5,16 @@ using namespace std;
 int n;
 int arr[100];
 
-int FindMax(int a[], int idx){
+int FindMax(int idx){
     if(idx == -1)
         return 0;
 
-    int cur_max = FindMax(a, idx - 1);
+    int cur_max = FindMax(idx - 1);
 
-    if(cur_max > a[idx])
+    if(cur_max > arr[idx])
         return cur_max;
     else
-        return a[idx];
+        return arr[idx];
 }
 
 int main() {
@@ -25,7 +25,7 @@ int main() {
     }
 
     // Write your code here!
-    cout << FindMax(arr, n);
+    cout << FindMax(n);
 
     return 0;
 }
