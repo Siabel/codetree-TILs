@@ -14,10 +14,10 @@ int main() {
     }
 
     // Write your code here!
-    sort(word.begin(), word.end());
+    sort(word, word + n);
 
     for (int i = 0; i < n; i++) {
-        cout << word[i] < " ";
+        cout << word[i] << "\n";
     }
 
     return 0;
