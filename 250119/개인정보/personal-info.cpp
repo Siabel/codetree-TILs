@@ -7,14 +7,15 @@ string name[5];
 int height[5];
 double weight[5];
 
+
 class User{
     public:
         string name;
         int height;
-        float weight;
+        double weight;
 
     User() : name(""), height(0), weight(0) {}
-    User(string name, int height, float weight){
+    User(string name, int height, double weight){
         this -> name = name;
         this -> height = height;
         this -> weight = weight;
@@ -35,6 +36,10 @@ int main() {
     }
 
     // Write your code here!
+    
+    cout << fixed;
+    cout.precision(1);
+
     User users[5];
     for (int i = 0; i < 5; i++) {
         users[i] = User(name[i], height[i], weight[i]);
