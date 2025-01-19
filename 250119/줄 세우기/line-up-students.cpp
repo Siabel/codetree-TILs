@@ -15,14 +15,14 @@ class Student{
     Student(int height, int weight, int number){
         this -> height = height;
         this -> weight = weight;
-        this -> number = number + 1;
+        this -> number = number;
     }
 };
 
 bool cmp(const Student &a, const Student &b){
     if(a.height == b.height){
         if(a.weight == b.weight){
-            return a.number > b.number;
+            return a.number < b.number;
         }
         return a.weight > b.weight;
     }
@@ -40,7 +40,7 @@ int main() {
     Student students[1000];
 
     for (int i = 0; i < N; i++) {
-        students[i] = Student(h[i], w[i], i);
+        students[i] = Student(h[i], w[i], i + 1);
     }
 
     sort(students, students + N, cmp);
