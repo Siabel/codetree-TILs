@@ -23,6 +23,8 @@ int main() {
     cur_date += d1;
     fut_date += d2;
 
+    if(fut_date - cur_date == 0)
+        cout << 1;
     cout << fut_date - cur_date;
 
     return 0;
