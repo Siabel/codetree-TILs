@@ -25,7 +25,8 @@ int main() {
 
     if(fut_date - cur_date == 0)
         cout << 1;
-    cout << fut_date - cur_date;
+    else
+        cout << fut_date - cur_date;
 
     return 0;
 }
