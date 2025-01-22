@@ -31,16 +31,20 @@ int main() {
             break;
         }
     }
-
-    int day_diff = CalDate(m2, d2) - CalDate(m1, d1) + 1;
+    
+    int start = CalDate(m1, d1);
+    int end = CalDate(m2, d2);
+    int start_week = (start - 1) % 7;
 
     int cnt = 0;
-    for (int i = 0; i < day_diff; i++) {
-        if (yoil[(idx + i) % 7] == A) {
+    for (int i = start; i <= end; i++) {
+        int cur_week = (start_week + (i - start)) % 7;
+        if (cur_week == idx) {
             cnt++;
         }
     }
 
     cout << cnt;
+
     return 0;
 }
