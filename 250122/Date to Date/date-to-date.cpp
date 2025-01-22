@@ -12,21 +12,18 @@ int main() {
     int cur_date = 0;
     int fut_date = 0;
 
-    for(int i = 1; i <= m1; i++){
+    for(int i = 1; i < m1; i++){
         cur_date += num_of_days[i];
     }
 
-    for(int i = 1; i <= m2; i++){
+    for(int i = 1; i < m2; i++){
         fut_date += num_of_days[i];
     }
 
-    cur_date += d1;
+    cur_date += d1 - 1;
     fut_date += d2;
 
-    if(fut_date - cur_date == 0)
-        cout << 1;
-    else
-        cout << fut_date - cur_date;
+    cout << fut_date - cur_date;
 
     return 0;
 }
