@@ -5,48 +5,55 @@ using namespace std;
 #define MAX_K 100000
 
 int n;
-int a[2 * MAX_K + 1];
-int cnt_b[2 * MAX_K + 1];
 int cnt_w[2 * MAX_K + 1];
-int b, w, g;
+int cnt_b[2 * MAX_K + 1];
+int color[2 * MAX_K + 1];
+int idx = MAX_K;
 
 int main() {
-    // 변수 입력
     cin >> n;
 
-    int cur = MAX_K;
-
-    for(int i = 1; i <= n; i++) {
+    for (int i = 0; i < n; i++) {
         int x;
-        char c;
-        cin >> x >> c;
-        if(c == 'L') {
-            // x칸 왼쪽으로 칠합니다.
-            while(x--) {
-                a[cur] = 1;
-                cnt_w[cur]++;
-                if(x) cur--;
+        char dir;
+        cin >> x >> dir;
+
+        if (dir == 'L') {
+            for (int j = 0; j < x; j++) {
+                cnt_w[idx]++;
+                if (cnt_w[idx] >= 2 && cnt_b[idx] >= 2) {
+                    color[idx] = 3;
+                } else {
+                    color[idx] = 1;
+                }
+                if (j < x - 1) 
+                    idx--;
             }
-        }
-        else {
-            // x칸 오른쪽으로 칠합니다.
-            while(x--) {
-                a[cur] = 2;
-                cnt_b[cur]++;
-                if(x) cur++;
+        } else if (dir == 'R') {
+            for (int j = 0; j < x; j++) {
+                cnt_b[idx]++;
+                if (cnt_w[idx] >= 2 && cnt_b[idx] >= 2) {
+                    color[idx] = 3;
+                } else {
+                    color[idx] = 2;
+                }
+                if (j < x - 1) 
+                    idx++;
             }
         }
     }
 
-    for(int i = 0; i <= 2 * MAX_K; i++) {
-        // 검은색과 흰색으로 두 번 이상 칠해진 타일은 회색입니다.
-        if(cnt_b[i] >= 2 && cnt_w[i] >= 2) g++;
-        // 그렇지 않으면 현재 칠해진 색깔이 곧 타일의 색깔입니다.
-        else if(a[i] == 1) w++;
-        else if(a[i] == 2) b++;
+    int gray = 0, white = 0, black = 0;
+    for (int i = 0; i <= 2 * MAX_K; i++) {
+        if (color[i] == 1) 
+            white++;
+        else if (color[i] == 2)
+            black++;
+        else if (color[i] == 3) 
+            gray++;
     }
 
-    // 정답을 출력합니다.
-    cout << w << " " << b << " " << g;
+    cout << white << " " << black << " " << gray << endl;
+
     return 0;
 }
