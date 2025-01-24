@@ -4,13 +4,15 @@ using namespace std;
 
 int n;
 int x1[100], x2[100];
-int res[100] = {};
+int res[201] = {};
 
 int main() {
     cin >> n;
 
     for (int i = 0; i < n; i++) {
         cin >> x1[i] >> x2[i];
+        x1[i] += 100;
+        x2[i] += 100;
     }
 
     // Write your code here!
@@ -21,7 +23,7 @@ int main() {
     }
 
     int max = 0;
-    for(int i = 0; i < 100; i++){
+    for(int i = 0; i < 201; i++){
         if(max < res[i])
             max = res[i];
     }
