@@ -19,10 +19,12 @@ int main() {
     for(int i = 0; i < n; i++){
         for(int j = 0; j < x[i]; j++){
             if(dir[i] == 'L'){
-                res[idx--]++;
+                idx--;
+                res[idx]++;
             }
             else{
-                res[idx++]++;
+                res[idx]++;
+                idx++;
             }
         }
     }
