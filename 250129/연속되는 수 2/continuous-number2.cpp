@@ -15,7 +15,7 @@ int main() {
     int cnt = 0;
     int res = 0;
     for(int i = 0; i < N; i++){
-        if(i == 0 || arr[i] != arr[i + 1]){
+        if(i == 0 || arr[i] == arr[i - 1]){
             cnt++;
         }
         else{
@@ -25,7 +25,7 @@ int main() {
         }
     }
 
-    cout << cnt;
+    cout << res;
 
     return 0;
 }
