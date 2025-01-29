@@ -62,10 +62,16 @@ int main() {
 
     for(int i = 0; i < 2 * MAX * MAX; i++){
         time++;
+        // cout << A_rec[i] << " " << B_rec[i] << "\n";
+        if(A_rec[i] == 0 || B_rec[i] == 0)
+            break;
+
         if(A_rec[i] == B_rec[i]){
             meet = true;
+            cout << "meet";
             break;
         }
+
     }
 
     if(meet)
