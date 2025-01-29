@@ -68,7 +68,6 @@ int main() {
 
         if(A_rec[i] == B_rec[i]){
             meet = true;
-            cout << "meet";
             break;
         }
 
