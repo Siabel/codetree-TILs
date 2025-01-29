@@ -1,82 +1,49 @@
 #include <iostream>
-#define MAX 1000
 using namespace std;
 
+const int OFFSET = 1000000;  // 음수 인덱스 방지용 오프셋
+const int SIZE = 2000000;    // 최대 범위 설정 (0 ~ 2,000,000)
+
 int n, m;
-char A_d[MAX];
-int A_t[MAX];
-char B_d[MAX];
-int B_t[MAX];
-
-int A_rec[MAX * MAX * 2];
-int B_rec[MAX * MAX * 2];
-
-int A_idx = MAX * MAX;
-int B_idx = MAX * MAX;
-int A_cnt = 0;
-int B_cnt = 0;
+char A_d[1000];
+int A_t[1000];
+char B_d[1000];
+int B_t[1000];
 
 int main() {
     cin >> n >> m;
 
-    for (int i = 0; i < n; i++){
+    int A_idx = OFFSET, B_idx = OFFSET;  // 오프셋을 적용한 초기 위치
+    int A_cnt = 0, B_cnt = 0;  // 총 이동 횟수
+    int A_pos[SIZE], B_pos[SIZE];  // 경로 저장 배열
+
+    // A 이동 처리
+    for (int i = 0; i < n; i++) {
         cin >> A_d[i] >> A_t[i];
-
-        if(A_d[i] == 'L'){
-            for(int j = 0; j < A_t[i]; j++){
-                A_idx--;
-                A_rec[A_cnt] = A_idx;
-                A_cnt++;
-            }
+        for (int j = 0; j < A_t[i]; j++) {
+            A_idx += (A_d[i] == 'L' ? -1 : 1);
+            A_pos[A_cnt++] = A_idx;
         }
-        else{
-            for(int j = 0; j < A_t[i]; j++){
-                A_idx++;
-                A_rec[A_cnt] = A_idx;
-                A_cnt++;
-            }
-        }
-    } 
+    }
 
-    for (int i = 0; i < m; i++){
+    // B 이동 처리
+    for (int i = 0; i < m; i++) {
         cin >> B_d[i] >> B_t[i];
-        
-        if(B_d[i] == 'L'){
-            for(int j = 0; j < B_t[i]; j++){
-                B_idx--;
-                B_rec[B_cnt] = B_idx;
-                B_cnt++;
-            }
-        }
-        else{
-            for(int j = 0; j < B_t[i]; j++){
-                B_idx++;
-                B_rec[B_cnt] = B_idx;
-                B_cnt++;
-            }
+        for (int j = 0; j < B_t[i]; j++) {
+            B_idx += (B_d[i] == 'L' ? -1 : 1);
+            B_pos[B_cnt++] = B_idx;
         }
     }
 
-    int time = 0;
-    bool meet = false;
-
-    for(int i = 0; i < 2 * MAX * MAX; i++){
-        time++;
-        // cout << A_rec[i] << " " << B_rec[i] << "\n";
-        if(A_rec[i] == 0 || B_rec[i] == 0)
-            break;
-
-        if(A_rec[i] == B_rec[i]){
-            meet = true;
-            break;
+    // 최소 이동 횟수만큼 비교
+    int min_cnt = min(A_cnt, B_cnt);
+    for (int i = 0; i < min_cnt; i++) {
+        if (A_pos[i] == B_pos[i]) {
+            cout << i + 1;  // 시간은 1부터 시작하므로 i+1 출력
+            return 0;
         }
-
     }
 
-    if(meet)
-        cout << time;
-    else
-        cout << -1;
-
+    cout << -1;  // 만나지 않는 경우
     return 0;
 }
