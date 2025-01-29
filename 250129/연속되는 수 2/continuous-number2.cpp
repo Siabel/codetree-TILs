@@ -17,6 +17,7 @@ int main() {
     for(int i = 0; i < N; i++){
         if(i == 0 || arr[i] == arr[i - 1]){
             cnt++;
+            res = cnt;
         }
         else{
             if(res < cnt)
