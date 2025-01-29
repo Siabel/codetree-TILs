@@ -21,8 +21,8 @@ int main() {
 
     // Write your code here!
     int cnt = 0;
-    for(int i = 0; i < 100; i++){
-        for(int j = 0; j < 100; j++){
+    for(int i = 0; i < 200; i++){
+        for(int j = 0; j < 200; j++){
             if(board[i][j] == 1)
                 cnt++;
         }
