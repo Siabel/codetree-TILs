@@ -4,7 +4,7 @@ using namespace std;
 
 int N;
 int x[100], y[100];
-int board[100][100] = {};
+int board[200][200] = {};
 
 int main() {
     cin >> N;
@@ -12,8 +12,8 @@ int main() {
     for (int i = 0; i < N; i++) {
         cin >> x[i] >> y[i];
 
-        for(int X = x[i]; X < x[i] + 8; X++){
-            for(int Y = y[i]; Y < y[i] + 8; Y++){
+        for(int X = x[i] + 100; X < x[i] + 108; X++){
+            for(int Y = y[i] + 100; Y < y[i] + 108; Y++){
                 board[X][Y] = 1;
             }
         }
