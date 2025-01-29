@@ -23,26 +23,30 @@ int main() {
         }
     }
 
-    int min_x = MAX, min_y = MAX;
-    int max_x = 0, max_y = 0;
+    int min_x = 2 * MAX, min_y = 2 * MAX;
+    int max_x = -1, max_y = -1;
 
-    for(int i = 0; i < 2 * MAX; i++){
-        for(int j = 0; j < 2 * MAX; j++){
-            if(board[i][j] == 1){
-                if(min_x > i)
-                    min_x = i;
-                if(max_x < i)
-                    max_x = i;
-
-                if(min_y > j)
-                    min_y = j;
-                if(max_y < j)
-                    max_y = j;
+    for(int i = 0; i < 2 * MAX; i++) {
+        for(int j = 0; j < 2 * MAX; j++) {
+            if(board[i][j] == 1) {
+                min_x = min(min_x, i);
+                max_x = max(max_x, i);
+                min_y = min(min_y, j);
+                max_y = max(max_y, j);
             }
         }
     }
 
-    // cout << max_x << " " << min_x << " " << max_y << " " << min_y << "\n";
-    cout << (max_x - min_x - 1) * (max_y - min_y);
+    if (max_x == -1 || max_y == -1) {
+        cout << "0\n";
+        return 0;
+    }
+
+    int width = max_x - min_x + 1;
+    int height = max_y - min_y + 1;
+
+    // cout << max_x - MAX << " " << min_x - MAX<< " " << max_y- MAX << " " << min_y- MAX << "\n";
+    cout << (width * height) << "\n";
+
     return 0;
 }
