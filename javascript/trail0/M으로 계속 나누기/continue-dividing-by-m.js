@@ -6,8 +6,8 @@ let n = arr[0];
 let m = arr[1];
 
 // Please write your code here.
-while(n > 1){
+while(n > 0){
     console.log(n);
-    Math.floor(n /= m);
+    n = Math.floor(n / m);
 }
 
