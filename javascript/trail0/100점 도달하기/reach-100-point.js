@@ -13,7 +13,7 @@ for (let i = N; i <= 100; i++) {
     } else if (i >= 60) {
         res += "D ";
     } else {
-        res += "E ";
+        res += "F ";
     }
 }
 
